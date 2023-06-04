@@ -1,0 +1,27 @@
+<table class="custom-table">
+    <thead>
+    <tr>
+      <th *ngFor="let column of columns">{{ column }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let item of data">
+      <tr>
+        <td *ngFor="let column of columns">
+          <ng-container *ngIf="column !== 'child'; else tableRow">
+            <ng-container *ngIf="column !== 'color'; else colorRow">
+              <div>{{ item[column] }}</div>
+            </ng-container>
+            <ng-template #colorRow>
+              <div [style.background-color]="item[column]" class="color-field">{{ item[column] }}</div>
+            </ng-template>
+          </ng-container>
+          <ng-template #tableRow>
+            <app-custom-table [data]="[item.child]" [columns]="nestedColumns"></app-custom-table>
+          </ng-template>
+        </td>
+      </tr>
+    </ng-container>
+    </tbody>
+  </table>
+  

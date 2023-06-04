@@ -1,0 +1,26 @@
+<div class="input-container">
+    <div class="input-row">
+      <label>Timer Interval (ms): </label>
+      <input type="number" [(ngModel)]="timerInterval" (ngModelChange)="updateTimerInterval()">
+    </div>
+  
+    <div class="input-row">
+      <label>Data Size: </label>
+      <input type="number" [(ngModel)]="dataSize" (ngModelChange)="updateDataSize()">
+    </div>
+  
+    <div class="input-row">
+      <label>Item array ids: </label>
+      <input type="text" [(ngModel)]="arrayIds" (ngModelChange)="updateArrayIds()">
+    </div>
+  </div>
+  
+  <div class="button-row">
+    <button (click)="startPseudoSocket()">Start</button>
+    <button (click)="stopPseudoSocket()">Stop</button>
+  </div>
+  
+  <app-custom-table [data]="lastData" [columns]="['id', 'int', 'float', 'color','child']"
+                    [nestedColumns]="['id', 'color']">
+  </app-custom-table>
+  

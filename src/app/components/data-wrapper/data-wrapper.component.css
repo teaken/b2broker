@@ -1,0 +1,21 @@
+.input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .input-row {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+  }
+  
+  .input-row label {
+    margin-right: 8px;
+  }
+  
+  .button-row {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
